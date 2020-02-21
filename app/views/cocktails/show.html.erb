@@ -1,5 +1,14 @@
 <h1>Cocktail: <%= @cocktail.name %></h1>
 
+<p>Active Storage model-associated image:</p>
+<%= cl_image_tag @cocktail.photo.key, height: 200, crop: :fill %>
+<ul>
+  <li>Key: <%= @cocktail.photo.key %></li>
+  <li>Filename: <%= @cocktail.photo.filename %></li>
+  <li>Content type: <%= @cocktail.photo.content_type %></li>
+  <li>Metadata: <%= @cocktail.photo.metadata %></li>
+</ul>
+
 <%= simple_form_for [ @cocktail, @dose ] do |f| %>
   <%= f.input :description %>
   <%= f.association :ingredient %>
